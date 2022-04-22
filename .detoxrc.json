@@ -1,0 +1,32 @@
+{
+  "testRunner": "jest",
+  "runnerConfig": "e2e/config.json",
+  "skipLegacyWorkersInjection": true,
+
+  "devices": {
+    "android.attached": {
+      "type": "android.attached",
+      "device": {
+        "adbName": "8501f40"
+      }
+    }
+  },
+  "apps": {
+    "android.debug": {
+      "type": "android.apk",
+      "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+      "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd .."
+    },
+    "android.release": {
+      "type": "android.apk",
+      "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+      "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd .."
+    }
+  },
+  "configurations": {
+    "android": {
+      "device": "android.attached",
+      "app": "android.debug"
+    }
+  }
+}
