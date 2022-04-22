@@ -14,6 +14,7 @@ function FormInput({
   secureTextEntry,
   keyboardType,
   onChangeText,
+  testID
 }) {
   return (
     <View style={[styles.containerInput, styles.shadowProp]}>
@@ -27,6 +28,7 @@ function FormInput({
           onChangeText={onChangeText}
           secureTextEntry={secureTextEntry}
           keyboardType={keyboardType}
+          testID={testID}
         />
       </View>
     </View>

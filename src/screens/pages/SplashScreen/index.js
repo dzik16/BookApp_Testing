@@ -18,7 +18,7 @@ function Splash() {
   useEffect(() => {
     setTimeout(() => {
       navigation.replace('LoginScreen');
-    }, 6000);
+    }, 3000);
   }, [navigation]);
 
   return (

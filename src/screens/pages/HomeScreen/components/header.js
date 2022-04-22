@@ -25,7 +25,7 @@ const header = props => {
         <TouchableOpacity onPress={() => navigation.navigate('MediaScreen')}>
           <Image source={IconMedia} style={styles.search} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => logOut()}>
+        <TouchableOpacity onPress={() => logOut()} testID="btn-logout">
           <Image source={IconLogout} style={styles.search} />
         </TouchableOpacity>
       </View>

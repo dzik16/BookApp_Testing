@@ -54,7 +54,7 @@ function Login() {
   return (
     <SafeAreaView style={styles.container} testID="LoginScreen">
       <ScreenStatusBar status={focus} color={Color.SECOND_MAIN_COLOR} />
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false} testID="ScrollView">
         <Header />
 
         <Title />
@@ -102,9 +102,10 @@ function Login() {
         <TouchableOpacity
           style={[styles.btnLogin, styles.shadowProp]}
           onPress={() => formChecker()}
+          testID='btn-login'
         >
           {isLoading ? (
-            <ActivityIndicator color="white" testID='btn-login' />
+            <ActivityIndicator color="white" />
           ) : (
             <Text
               style={{ fontSize: 15, color: Color.WHITE, fontWeight: 'bold' }}

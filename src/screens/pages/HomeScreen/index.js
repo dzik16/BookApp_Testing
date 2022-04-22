@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable no-use-before-define */
 /* eslint-disable react/jsx-filename-extension */
-import { StyleSheet, Text, View, FlatList, RefreshControl } from 'react-native';
+import { StyleSheet, Text, View, FlatList, RefreshControl, TouchableOpacity, Image } from 'react-native';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useIsFocused } from '@react-navigation/native';
@@ -12,13 +12,17 @@ import {
   setRefresh,
 } from '../../../config/api';
 import { Color } from '../../../config/utils/color';
+import { IconLogout, Foto, IconMedia } from '../../../assets';
+import { useNavigation } from '@react-navigation/native';
 
 import Header from './components/header';
 import Recommended from './components/recommended';
 import Popular from './components/popular';
 import Loading from '../../../components/Loading';
+import { logout } from '../../../config/api';
 
 function HomeScreen() {
+  const navigation = useNavigation();
   const focus = useIsFocused();
   const dispatch = useDispatch();
 
@@ -43,10 +47,28 @@ function HomeScreen() {
     dispatch(getBooksPopular(getToken));
   };
 
+  const logOut = () => {
+    dispatch(logout());
+    navigation.replace('SplashScreen');
+  };
+
   if (!isLoading) {
     return (
-      <View style={styles.main}>
-        <Header data={getNama} />
+      <View style={styles.main} testID="HomeScreen">
+        <View style={styles.headerContainer}>
+          <Text style={styles.headerTitle}>{`Hi, Dzikri`}</Text>
+          <View style={styles.boxHeader}>
+            <TouchableOpacity>
+              <Image source={Foto} style={styles.foto} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('MediaScreen')}>
+              <Image source={IconMedia} style={styles.search} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => logOut()} testID="btn-logout">
+              <Image source={IconLogout} style={styles.search} />
+            </TouchableOpacity>
+          </View>
+        </View>
         <View style={styles.container}>
           <FlatList
             showsVerticalScrollIndicator={false}
@@ -95,5 +117,32 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: Color.BLACK,
     marginVertical: 10,
+  },
+  headerContainer: {
+    marginVertical: 12,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+  },
+  headerTitle: {
+    flex: 4,
+    fontSize: 18,
+    color: 'black',
+    fontWeight: 'bold',
+  },
+  boxHeader: {
+    flex: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  search: {
+    width: 23,
+    height: 22,
+  },
+  foto: {
+    height: 25,
+    width: 25,
+    borderRadius: 50,
   },
 });

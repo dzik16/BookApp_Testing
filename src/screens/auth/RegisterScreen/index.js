@@ -56,7 +56,7 @@ function Register() {
   return (
     <SafeAreaView style={styles.container}>
       <ScreenStatusBar status={focus} color={Color.SECOND_MAIN_COLOR} />
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false} testID="ScrollView">
         <Header />
 
         <FormInput
