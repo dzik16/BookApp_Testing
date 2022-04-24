@@ -84,7 +84,6 @@ describe('Get Data Action Test', () => {
                 setLoading(true),
                 dataSort = dataResults.sort(AverageRatingSort),
                 saveBookPopular(dataSort),
-
             );
         });
     });

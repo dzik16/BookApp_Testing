@@ -19,7 +19,7 @@ jest.mock('react-native-share', () => ({
 
 configure({ adapter: new Adapter(), disableLifecycleMethods: true });
 
-describe('Login Screen test', () => {
+describe('Register Screen test', () => {
     const initialState = {
         dataBooks: dataReducers,
         Auth: authReducers,
@@ -37,7 +37,7 @@ describe('Login Screen test', () => {
         useNavigation: (component) => component,
     }));
 
-    it('should renders `LoginScreen Screen` module correctly', () => {
+    it('should renders `Register Screen` module correctly', () => {
         expect(registerWrapper).toMatchSnapshot();
     });
     describe('Check component', () => {

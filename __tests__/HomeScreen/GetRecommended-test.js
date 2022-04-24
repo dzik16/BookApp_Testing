@@ -29,7 +29,7 @@ describe('BOOKS_RECOMMENDED', () => {
         mock.reset();
     });
 
-    describe('getRecommendedApi', () => {
+    describe('Get Book Recommended', () => {
         it('should return an object', async () => {
             const response = {
                 results: [

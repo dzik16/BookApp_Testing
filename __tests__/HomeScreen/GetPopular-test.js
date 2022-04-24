@@ -18,7 +18,7 @@ const getPopularApi = async (token) => {
     }
 };
 
-describe('GET_BOOKS_API_POPULAR', () => {
+describe('BOOKS_POPULAR', () => {
     let mock;
 
     beforeAll(() => {
@@ -29,18 +29,18 @@ describe('GET_BOOKS_API_POPULAR', () => {
         mock.reset();
     });
 
-    describe('getPopularApi', () => {
+    describe('Get Book Popular', () => {
         it('should return an object', async () => {
             const response = {
                 results: [
                     {
-                        title: 'Harry Potter and the Order of the Phoenix',
+                        title: 'Harry Potter and the Chamber of Secrets',
                         author: 'J. K. Rowling',
-                        cover_image: 'https://images-na.ssl-images-amazon.com/images/I/51SfTd37PaL._SX415_BO1,204,203,200_.jpg',
-                        id: '6231453513c01e6f8b566ece',
+                        cover_image: 'https://images-na.ssl-images-amazon.com/images/I/51jNORv6nQL._SX340_BO1,204,203,200_.jpg',
+                        id: '6231453513c01e6f8b566ecb',
                         publisher: 'Scholastic',
-                        average_rating: '8',
-                        price: '292532',
+                        average_rating: '10',
+                        price: '596609',
                     }],
             };
             mock.onGet(BOOKS_POPULAR).reply(200, response);

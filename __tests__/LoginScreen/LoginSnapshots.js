@@ -36,7 +36,7 @@ describe('Login Screen test', () => {
         useNavigation: (component) => component,
     }));
 
-    it('should renders `LoginScreen Screen` module correctly', () => {
+    it('should renders `Login Screen` module correctly', () => {
         expect(loginWrapper).toMatchSnapshot();
     });
     describe('Check component', () => {

@@ -14,7 +14,7 @@ const registerApi = async (em, password, name) => {
     }
 };
 
-describe('REGISTER', () => {
+describe('REGISTER_USER', () => {
     let mock;
 
     beforeAll(() => {
@@ -24,8 +24,8 @@ describe('REGISTER', () => {
     afterEach(() => {
         mock.reset();
     });
-    describe('registerApi', () => {
-        it('should return an object', async () => {
+    describe('when API call is successful', () => {
+        it('Register Success', async () => {
             const response = {
                 success: true,
                 message: 'Register succeed! Please try to login with email sabrinabinr@pmail.com',
@@ -41,7 +41,10 @@ describe('REGISTER', () => {
             const result = await registerApi('olah@gmail.com', 'olah1234', 'Olah');
             expect(result.data).toEqual(response);
         });
-        it('should return an empty object', async () => {
+    });
+
+    describe('when API call is unsuccessful', () => {
+        it('Register Failed', async () => {
             mock.onPost(REGISTER_USER).reply(400, []);
             const result = await registerApi('olah@gmail.com', 'olah1234', 'Olah');
             expect(result).toEqual([]);

@@ -6,8 +6,6 @@ jest.mock('react-native-flash-message', () => "FlashMessageManager");
 
 jest.mock('@react-native-async-storage/async-storage', () => "AsyncStorage");
 
-const email = 'olah@gmail.com';
-const pass = 'olah1234';
 
 const loginApi = async (em, password) => {
     try {
@@ -17,7 +15,7 @@ const loginApi = async (em, password) => {
     }
 };
 
-describe('lOGIN', () => {
+describe('LOGIN_USER', () => {
     let mock;
 
     beforeAll(() => {
@@ -29,7 +27,7 @@ describe('lOGIN', () => {
     });
 
     describe('when API call is successful', () => {
-        it('Login success', async () => {
+        it('Login Success', async () => {
             const loginSuccess = {
                 user: {
                     role: 'user',
@@ -40,9 +38,7 @@ describe('lOGIN', () => {
                 },
             };
             mock.onPost(LOGIN_USER).reply(200, loginSuccess);
-
-            const result = await loginApi(email, pass);
-
+            const result = await loginApi('olah@gmail.com', 'olah1234');
             expect(result.data).toEqual(loginSuccess);
         });
     });
@@ -50,7 +46,7 @@ describe('lOGIN', () => {
     describe('when API call is unsuccessful', () => {
         it('Login failed', async () => {
             mock.onPost(LOGIN_USER).reply(400, []);
-            const result = await loginApi(email, pass);
+            const result = await loginApi('olah@gmail.com', 'olah1234');
             expect(result).toEqual([]);
         });
     });
