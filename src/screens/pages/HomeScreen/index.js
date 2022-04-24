@@ -15,7 +15,6 @@ import { Color } from '../../../config/utils/color';
 import { IconLogout, Foto, IconMedia } from '../../../assets';
 import { useNavigation } from '@react-navigation/native';
 
-import Header from './components/header';
 import Recommended from './components/recommended';
 import Popular from './components/popular';
 import Loading from '../../../components/Loading';
@@ -56,7 +55,7 @@ function HomeScreen() {
     return (
       <View style={styles.main} testID="HomeScreen">
         <View style={styles.headerContainer}>
-          <Text style={styles.headerTitle}>{`Hi, Dzikri`}</Text>
+          <Text style={styles.headerTitle}>{`Hi, ${getNama}`}</Text>
           <View style={styles.boxHeader}>
             <TouchableOpacity>
               <Image source={Foto} style={styles.foto} />

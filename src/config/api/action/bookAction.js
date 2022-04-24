@@ -2,7 +2,7 @@ import axios from 'axios';
 import { BOOKS_API } from '../baseAPI';
 import { BOOKS_RECOMMENDED, BOOKS_POPULAR, BOOKS_ID } from '../types';
 import { setLoading, setRefresh } from './globalAction';
-import { error } from '../../utils/message';
+// import { error } from '../../utils/message';
 
 export const saveBookPopular = (data) => ({
   type: BOOKS_POPULAR,
@@ -33,7 +33,7 @@ export const getBooksRecommended = (token, batas) => async (dispatch) => {
         dispatch(saveBookRecommended(response.data.results));
       });
   } catch (err) {
-    error(err.message);
+    // error(err.message);
     dispatch(setRefresh(false));
   }
 };
@@ -49,7 +49,7 @@ export const getBooksPopular = (token) => async (dispatch) => {
         dispatch(saveBookPopular(response.data.results));
       });
   } catch (err) {
-    error(err.message);
+    // error(err.message);
     dispatch(setRefresh(false));
     dispatch(setLoading(false));
   }
@@ -68,7 +68,7 @@ export const getBooksId = (token, id) => async (dispatch) => {
         dispatch(setLoading(false));
       });
   } catch (err) {
-    error(err.message);
+    // error(err.message);
     dispatch(setRefresh(false));
     dispatch(setLoading(false));
   }

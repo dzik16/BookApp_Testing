@@ -17,7 +17,7 @@ import IconShare from './icons/share.png';
 import IconLove from './icons/love.png';
 import IconMedia from "./icons/media.png"
 
-import Audio from "./music/audio.mp3"
+// import Audio from "./music/audio.mp3"
 
 export {
   SplashAnim,
@@ -36,5 +36,5 @@ export {
   IconShare,
   IconLove,
   IconMedia,
-  Audio
+  // Audio
 };

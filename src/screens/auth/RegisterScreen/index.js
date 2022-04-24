@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigation, useIsFocused } from '@react-navigation/native';
+import { useIsFocused } from '@react-navigation/native';
 import { signupUser } from '../../../config/api';
 import ScreenStatusBar from '../../../components/ScreenStatusBar';
 
@@ -22,8 +22,7 @@ import { Color } from '../../../config/utils/color';
 import Header from './components/header';
 import FormInput from '../../../components/FormInput';
 
-function Register() {
-  const navigation = useNavigation();
+function Register({ navigation }) {
   const focus = useIsFocused();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');

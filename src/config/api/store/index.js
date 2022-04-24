@@ -27,4 +27,4 @@ export const Store = createStore(
   applyMiddleware(ReduxThunk, reduxLogger),
 );
 
-export const Persistore = persistStore(Store);
+// export const Persistore = persistStore(Store);

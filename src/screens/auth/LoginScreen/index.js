@@ -12,7 +12,7 @@ import {
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
-import { useIsFocused, useNavigation } from '@react-navigation/native';
+import { useIsFocused } from '@react-navigation/native';
 import { loginUser } from '../../../config/api';
 import ScreenStatusBar from '../../../components/ScreenStatusBar';
 
@@ -23,8 +23,7 @@ import Header from './components/header';
 import Title from './components/title';
 import FormInput from '../../../components/FormInput';
 
-function Login() {
-  const navigation = useNavigation();
+function Login({ navigation }) {
   const focus = useIsFocused();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
